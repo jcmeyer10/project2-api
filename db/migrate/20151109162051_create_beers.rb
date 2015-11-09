@@ -9,3 +9,12 @@ class CreateBeers < ActiveRecord::Migration
     end
   end
 end
+
+
+curl --request POST --header "Authorization: Token token=27bb3766073e3209611302f47eceafba" --header "Content-Type: application/json" -d '{
+  "book": {
+    "name":"UFO",
+    "brewery":"Harpoon",
+    "type":"Hefeweizen"
+  }
+}'  http://localhost:3000/beers
