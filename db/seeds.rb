@@ -5,9 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-%w(and dna dan nda).each do |name|
-  email = "#{name}@#{name}.com"
+User.delete_all
+
+# Create 3 Users
+%w(tom fred jane).each do |name|
+  email = "#{name}@example.com"
   next if User.exists? email: email
-  User.create!(email: email, password: 'abc123',
+  user = User.create!(email: email, password: 'abc123',
                password_confirmation: 'abc123')
+
+  3.times do |location_num|
+    user.locations.create!(name: "Location_#{location_num}", street_num: 5 * location_num, street: 'Elm', city: 'Boston', state: 'MA' )
+  end
 end

@@ -4,8 +4,14 @@ class LocationsController < ApplicationController
 
   # GET /locations
   def index
-    @locations = Location.all
-
+    if current_user
+      # if your logged in then you'll have a current_user
+      # so, get that user's locations
+      @locations = current_user.locations
+    else
+      # your not logged in get all locations
+      @locations = Location.all
+    end
     render json: @locations
   end
 

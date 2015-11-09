@@ -1,0 +1,25 @@
+Create Tom
+
+
+curl --include --request POST --header "Content-Type: application/json" -d '{
+  "credentials": {
+    "email": "jane@example.com",
+    "password": "abc123",
+    "password_confirmation": "abc123"
+  }
+}' http://localhost:3000/register
+
+
+Login Tom
+
+curl --request POST --header "Content-Type: application/json" -d '{
+  "credentials": {
+    "email": "tom@example.com",
+    "password": "abc123"
+  }
+}' http://localhost:3000/login
+
+
+# Use token returned from above login here
+curl --header "Authorization: Token token=6acecefc05278d4c7a6514fd1cb428ec" http://localhost:3000/locations
+
