@@ -55,10 +55,17 @@ curl http://localhost:3000/users
 ## Create
 
 ```
-curl --request POST --header "Authorization: Token token=be249dc0231396806f24c953cafae03a" --header "Content-Type: application/json" -d '{
-  "book": {
-    "title":"The Hold",
-    "isbn":"abc123def456"
+curl --request POST --header 'Authorization: Token token="12a36c889c3182da7e0c22f7ba20d358"' --header "Content-Type: application/json" -d '{
+  "beer": {
+    "name":"UFO",
+    "brewery":"Harpoon",
+    "style":"Hefe"
   }
-}'  http://localhost:3000/books
+}'  http://localhost:3000/beers
 ```
+
+curl --request POST --header "Authorization: Token token='123bd8ec5e416fc713a279cd58ac37b8' --header "Content-Type: application/json" -d '{
+  "location": {
+    "name":"Port 305"
+  }
+}'  http://localhost:3000/locations

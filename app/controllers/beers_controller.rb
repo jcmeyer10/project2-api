@@ -17,7 +17,8 @@ before_action :set_beer, only: [:update, :destroy]
 
   # POST /beers
   def create
-    @beer = current_user.beers.new(beer_params)
+
+    @beer = current_user.beers
 
     if @beer.save
       render json: @beer, status: :created, beer: @beer
@@ -47,7 +48,7 @@ before_action :set_beer, only: [:update, :destroy]
   end
 
   def beer_params
-    params.require(:beer).permit(:name, :brewery, :type)
+    params.require(:beer).permit(:name, :brewery, :style)
   end
 
   private :set_beer, :beer_params

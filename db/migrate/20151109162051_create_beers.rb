@@ -3,7 +3,7 @@ class CreateBeers < ActiveRecord::Migration
     create_table :beers do |t|
       t.string :name
       t.string :brewery
-      t.string :type
+      t.string :style
 
       t.timestamps null: false
     end
@@ -11,10 +11,10 @@ class CreateBeers < ActiveRecord::Migration
 end
 
 
-curl --request POST --header "Authorization: Token token=27bb3766073e3209611302f47eceafba" --header "Content-Type: application/json" -d '{
-  "book": {
-    "name":"UFO",
-    "brewery":"Harpoon",
-    "type":"Hefeweizen"
-  }
-}'  http://localhost:3000/beers
+# curl --request POST --header "Authorization: Token token=27bb3766073e3209611302f47eceafba" --header "Content-Type: application/json" -d '{
+#   "book": {
+#     "name":"UFO",
+#     "brewery":"Harpoon",
+#     "type":"Hefeweizen"
+#   }
+# }'  http://localhost:3000/beers
