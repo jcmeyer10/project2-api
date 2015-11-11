@@ -54,15 +54,12 @@ curl http://localhost:3000/books
 ## Create
 
 ```
-curl --request POST --header "Authorization: Token token=eafe876a2a0d8793018633bb154bc6a4" --header "Content-Type: application/json" -d '{
-  "location": {
-    "name":"Menton",
-    "street_num":"33",
-    "street":"Melcher",
-    "city":"Boston"
+curl --request DELETE --header "Authorization: Token token=bc77143ac8c03d3ae8deac7d06271497" --header "Content-Type: application/json" -d '{
+  "beer": {
+    "name":"meow"
   }
-}'  http://localhost:3000/locations
+}'  http://localhost:3000/beers/13
 ```
 
-curl --request PATCH --header "Authorization: Token token=eafe876a2a0d8793018633bb154bc6a4" --header "Content-Type: application/json" -d '{   "location": {      "name":"Victory Is Mine"   } }'  http://localhost:3000/locations/4
+curl --request DELETE --header "Authorization: Token token=bc77143ac8c03d3ae8deac7d06271497" --header "Content-Type: application/json" -d '{   "location": {      "name":"Victory Is Mine"   } }'  http://localhost:3000/locations/4
 

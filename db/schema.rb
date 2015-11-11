@@ -11,36 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111153001) do
+ActiveRecord::Schema.define(version: 20151111194635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "beer_choices", force: :cascade do |t|
-    t.integer  "beer_id"
-    t.integer  "location_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "beer_choices", ["beer_id"], name: "index_beer_choices_on_beer_id", using: :btree
-  add_index "beer_choices", ["location_id"], name: "index_beer_choices_on_location_id", using: :btree
 
   create_table "beers", force: :cascade do |t|
     t.string   "name"
     t.string   "brewery"
     t.string   "style"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-  end
-
-  add_index "beers", ["user_id"], name: "index_beers_on_user_id", using: :btree
-
-  create_table "books", force: :cascade do |t|
-    t.string   "title"
-    t.string   "isbn"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,10 +32,17 @@ ActiveRecord::Schema.define(version: 20151111153001) do
     t.string   "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
   end
 
-  add_index "locations", ["user_id"], name: "index_locations_on_user_id", using: :btree
+  create_table "taps", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "location_id"
+    t.integer  "beer_id"
+  end
+
+  add_index "taps", ["beer_id"], name: "index_taps_on_beer_id", using: :btree
+  add_index "taps", ["location_id"], name: "index_taps_on_location_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -69,8 +55,6 @@ ActiveRecord::Schema.define(version: 20151111153001) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
-  add_foreign_key "beer_choices", "beers"
-  add_foreign_key "beer_choices", "locations"
-  add_foreign_key "beers", "users"
-  add_foreign_key "locations", "users"
+  add_foreign_key "taps", "beers"
+  add_foreign_key "taps", "locations"
 end

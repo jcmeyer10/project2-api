@@ -18,7 +18,7 @@ class LocationsController < OpenReadController
 
   # POST /locations
   def create
-    @location = current_user.locations.new(location_params)
+    @location = Locations.new(location_params)
 
     if @location.save
       render json: @location, status: :created, location: @location
@@ -44,7 +44,7 @@ class LocationsController < OpenReadController
   end
 
   def set_location
-    @location = current_user.locations.find(params[:id])
+    @location = Location.find(params[:id])
   end
 
   def location_params

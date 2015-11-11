@@ -17,7 +17,7 @@ before_action :set_beer, only: [:update, :destroy]
 
   # POST /beers
   def create
-    @beer = current_user.beers.new(beer_params)
+    @beer = Beer.new(beer_params)
     @beer.save
 
     if @beer.save
@@ -44,7 +44,7 @@ before_action :set_beer, only: [:update, :destroy]
   end
 
   def set_beer
-    @beer = current_user.beers.find(params[:id])
+    @beer = Beer.find(params[:id])
   end
 
   def beer_params
