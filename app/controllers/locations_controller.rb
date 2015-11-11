@@ -1,17 +1,11 @@
-class LocationsController < ApplicationController
-
+#
+class LocationsController < OpenReadController
   before_action :set_location, only: [:update, :destroy]
 
   # GET /locations
   def index
-    if current_user
-      # if your logged in then you'll have a current_user
-      # so, get that user's locations
-      @locations = current_user.locations
-    else
-      # your not logged in get all locations
-      @locations = Location.all
-    end
+    @locations = Location.all
+
     render json: @locations
   end
 
@@ -54,7 +48,7 @@ class LocationsController < ApplicationController
   end
 
   def location_params
-    params.require(:location).permit(:name, :address_num, :street, :city, :state)
+    params.require(:location).permit(:name, :street_num, :street, :city, :state)
   end
 
   private :set_location, :location_params

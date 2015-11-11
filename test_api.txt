@@ -1,6 +1,4 @@
-Create Tom
-
-
+# 1) Create Tom
 curl --include --request POST --header "Content-Type: application/json" -d '{
   "credentials": {
     "email": "jane@example.com",
@@ -10,7 +8,7 @@ curl --include --request POST --header "Content-Type: application/json" -d '{
 }' http://localhost:3000/register
 
 
-Login Tom
+# 2) Login Tom
 
 curl --request POST --header "Content-Type: application/json" -d '{
   "credentials": {
@@ -21,5 +19,11 @@ curl --request POST --header "Content-Type: application/json" -d '{
 
 
 # Use token returned from above login here
-curl --header "Authorization: Token token=6acecefc05278d4c7a6514fd1cb428ec" http://localhost:3000/locations
+curl --header "Authorization: Token token=b2fd4f9e38e139f2034bb559d4f41969" http://localhost:3000/locations
 
+
+# four things I need to get right tonight/tomorrow
+# User Stories
+# Wireframes
+# ERD
+# Relationships

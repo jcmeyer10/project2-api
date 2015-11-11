@@ -1,4 +1,3 @@
-
 # User authentication
 
 ## Register
@@ -43,29 +42,27 @@ curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http
 ## List
 
 ```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
+curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/books
 ```
 
 **OR**
 
 ```
-curl http://localhost:3000/users
+curl http://localhost:3000/books
 ```
 
 ## Create
 
 ```
-curl --request POST --header 'Authorization: Token token="12a36c889c3182da7e0c22f7ba20d358"' --header "Content-Type: application/json" -d '{
-  "beer": {
-    "name":"UFO",
-    "brewery":"Harpoon",
-    "style":"Hefe"
-  }
-}'  http://localhost:3000/beers
-```
-
-curl --request POST --header "Authorization: Token token='123bd8ec5e416fc713a279cd58ac37b8' --header "Content-Type: application/json" -d '{
+curl --request POST --header "Authorization: Token token=eafe876a2a0d8793018633bb154bc6a4" --header "Content-Type: application/json" -d '{
   "location": {
-    "name":"Port 305"
+    "name":"Menton",
+    "street_num":"33",
+    "street":"Melcher",
+    "city":"Boston"
   }
 }'  http://localhost:3000/locations
+```
+
+curl --request PATCH --header "Authorization: Token token=eafe876a2a0d8793018633bb154bc6a4" --header "Content-Type: application/json" -d '{   "location": {      "name":"Victory Is Mine"   } }'  http://localhost:3000/locations/4
+

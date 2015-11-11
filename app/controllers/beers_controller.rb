@@ -1,4 +1,4 @@
-class BeersController < ApplicationController
+class BeersController < OpenReadController
 before_action :set_beer, only: [:update, :destroy]
 
   # GET /beers
@@ -17,11 +17,11 @@ before_action :set_beer, only: [:update, :destroy]
 
   # POST /beers
   def create
-
-    @beer = current_user.beers
+    @beer = current_user.beers.new(beer_params)
+    @beer.save
 
     if @beer.save
-      render json: @beer, status: :created, beer: @beer
+      render json: @beer, status: :created, location: @beer
     else
       render json: @beer.errors, status: :unprocessable_entity
     end

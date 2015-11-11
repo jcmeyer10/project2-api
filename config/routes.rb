@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   resources :locations
 
-  resources :beers
+  resources :beers, except: [:new, :edit]
 end
