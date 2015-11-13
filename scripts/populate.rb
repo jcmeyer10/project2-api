@@ -3,24 +3,19 @@ Beer.delete_all
 Location.delete_all
 User.delete_all
 
-# Create 3 Users
-%w(tom fred jane).each do |name|
-  email = "#{name}@example.com"
-  user = User.create!(email: email, password: 'abc123',
-               password_confirmation: 'abc123')
+locations = ['Salty Pig', 'Lime Leaf', 'Punjab Cafe']
+street_nums = [33, 56, 77]
+streets = ['Comm Ave', 'Melcher', 'Quincy Shore Drive']
+cities = ['Boston', 'Cambridge', 'Lowell']
+states = ['MA', 'MA', 'MA']
 
+3.times do |i|
+  Location.create!(name: locations[i], street_num: 44, street: streets[i], city: cities[i], state: states[i])
 end
 
-cities = ['Boston', 'NYC', 'Lowell']
-states = ['MA', 'NY', 'MA']
-
-3.times do |location_num|
-  Location.create!(name: "Location_#{location_num}", street_num: 5 * location_num, street: 'Elm', city: cities[location_num], state: states[location_num] )
-end
-
-beers = ['Boston Lager', 'UFO', 'Vanilla Porter', "Schlitz", 'Michelob', 'Miller', 'Grolsh', 'Heineken', 'Blue Moon', 'Rolling Rock', 'Bass', 'Guiness']
-breweries = ['Sam Adams', 'Harpoon', 'Breckenridge', 'Latrobe']
-style = ['Vienna Lager', 'Hefeweizen', 'Porter', 'Gose']
+beers = ['Boston Lager', 'UFO', 'Vanilla Porter', 'Schlitz', 'Michelob', 'Miller', 'Grolsh', 'Heineken', 'Blue Moon', 'Rolling Rock', 'Bass', 'Guiness']
+breweries = ['Sam Adams', 'Harpoon', 'Breckenridge', 'Latrobe', 'Coors', 'Rolling Rock', 'Blue Moon', 'Anderson Valley', 'Great Divide', 'Avery', 'Boulder Beer']
+style = ['Vienna Lager', 'Hefeweizen', 'Porter', 'Gose', 'American Lager', 'Strong Ale', 'Russian Imperial Stout', 'Saison', 'Barely Wine', 'Red Ale', 'Brown Ale', 'Pale Ale']
 
 12.times do |i|
   Beer.create!(name: beers[i], brewery: breweries[i], style: style[i])
