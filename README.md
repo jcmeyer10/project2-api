@@ -54,11 +54,12 @@ curl http://localhost:3000/books
 ## Create
 
 ```
-curl --request DELETE --header "Authorization: Token token=bc77143ac8c03d3ae8deac7d06271497" --header "Content-Type: application/json" -d '{
+curl --request GET --header "Authorization: Token token=cf686e40f6eb4e2a98c720a4ef257bc3" --header "Content-Type: application/json" -d '{
   "beer": {
-    "name":"meow"
+    "location_id":"4",
+    "beer_id":"19"
   }
-}'  http://localhost:3000/beers/13
+}'  http://localhost:3000/taps
 ```
 
 curl --request DELETE --header "Authorization: Token token=bc77143ac8c03d3ae8deac7d06271497" --header "Content-Type: application/json" -d '{   "location": {      "name":"Victory Is Mine"   } }'  http://localhost:3000/locations/4

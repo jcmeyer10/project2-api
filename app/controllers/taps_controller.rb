@@ -15,7 +15,7 @@ before_action :set_beer, only: [:update, :destroy]
 
   # POST /taps
   def create
-    @beer = taps.new(tap_params)
+    @tap = Tap.new(tap_params)
     @tap.save
 
     if @tap.save
