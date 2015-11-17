@@ -1,66 +1,24 @@
-# User authentication
+Link to the Front End Repo:
 
-## Register
+https://github.com/jcmeyer10/tap-app
 
-```
-curl --include --request POST --header "Content-Type: application/json" -d '{
-  "credentials": {
-    "email": "an@example.email",
-    "password": "an example password",
-    "password_confirmation": "an example password"
-  }
-}' http://localhost:3000/register
-```
+<img src="https://cloud.githubusercontent.com/assets/12531471/11219766/4bba02ae-8d2a-11e5-9b2a-a2a97dc65bf8.jpg" width="15%"></img>
 
-## Login
+Included is the simple wireframe, ERD, and user stories.
 
-```
-curl --request POST --header "Content-Type: application/json" -d '{
-  "credentials": {
-    "email": "an@example.email",
-    "password": "an example password"
-  }
-}' http://localhost:3000/login
-```
+What I have today:
 
-## Logout
+I have CR of CRUD.  I have a frankensteined bootstrap front end, but the bones are good.  To transfer this to another front end would be easy which is important to me so as I optimize, I can focus more on the code that will actually get me the job.
 
-```
-curl --request DELETE --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/logout/1
-```
+I can display the information in a div but not in the dropdown menus.
 
-# Users
+Future Plans/Problems:
+In creating the front end, I utilized jQuery click handlers to call upon my AJAX calls to retrieve data from the back end and deliever it to my HTML.  I ran into a problem linking a beer and an location so the plan is to use that call to populate two drop down menus, and utilize the indexes to link the two together through the original join table.
 
-## List
+I also plan to finish Update and thus Destroy.  I just need to finish finding the index of beers and locations.
 
-```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
-```
+I also want to make it look nice as well but that's after I have everything else figured out.
 
-# Books
-
-## List
-
-```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/books
-```
-
-**OR**
-
-```
-curl http://localhost:3000/books
-```
-
-## Create
-
-```
-curl --request GET --header "Authorization: Token token=cf686e40f6eb4e2a98c720a4ef257bc3" --header "Content-Type: application/json" -d '{
-  "beer": {
-    "location_id":"4",
-    "beer_id":"19"
-  }
-}'  http://localhost:3000/taps
-```
-
-curl --request DELETE --header "Authorization: Token token=bc77143ac8c03d3ae8deac7d06271497" --header "Content-Type: application/json" -d '{   "location": {      "name":"Victory Is Mine"   } }'  http://localhost:3000/locations/4
+Takeaways:
+This was a lot more fun than Tic Tac Toe.  I want to finish this project and use to learn and grow while helping myself put a portfolio together.
 

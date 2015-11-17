@@ -27,3 +27,7 @@ curl --header "Authorization: Token token=b2fd4f9e38e139f2034bb559d4f41969" http
 # Wireframes
 # ERD
 # Relationships
+
+limitless-gorge-4030
+
+create role "limitless-gorge-4030" login createdb;
