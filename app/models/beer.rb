@@ -4,4 +4,3 @@ class Beer < ActiveRecord::Base
   has_many :locations, through: :taps
 end
 
-
