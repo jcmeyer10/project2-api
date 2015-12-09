@@ -47,7 +47,7 @@ before_action :set_beer, only: [:update, :destroy]
   end
 
   def set_beer
-    @beer = Beer.find(params[:id])
+    @beer = current_user.beers.find(params[:id])
   end
 
   def beer_params
