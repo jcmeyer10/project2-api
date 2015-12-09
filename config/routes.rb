@@ -6,9 +6,5 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new, :edit]
 
-  resources :locations
-
   resources :beers
-
-  resources :taps
 end

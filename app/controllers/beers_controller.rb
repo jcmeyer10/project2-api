@@ -1,11 +1,14 @@
-class BeersController < OpenReadController
+class BeersController < ApplicationController
 before_action :set_beer, only: [:update, :destroy]
 
   # GET /beers
   def index
-    @beers = Beer.all
-
-    render json: @beers
+    if(current_user)
+      @beers = current_user.beers
+    else
+      @beers = Beer.all
+    end
+      render json: @beers
   end
 
   # GET /beers/1
@@ -17,7 +20,7 @@ before_action :set_beer, only: [:update, :destroy]
 
   # POST /beers
   def create
-    @beer = Beer.new(beer_params)
+    @beer = current_user.beers.new(beer_params)
     @beer.save
 
     if @beer.save
