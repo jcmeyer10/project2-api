@@ -47,3 +47,4 @@ class UsersController < ApplicationController
 
   private :set_user
 end
+end
