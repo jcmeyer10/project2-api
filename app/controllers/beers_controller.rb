@@ -1,14 +1,15 @@
+#
 class BeersController < ApplicationController
-before_action :set_beer, only: [:update, :destroy]
+  before_action :set_beer, only: [:update, :destroy]
 
   # GET /beers
   def index
-    if(current_user)
+    if current_user
       @beers = current_user.beers
     else
       @beers = Beer.all
     end
-      render json: @beers
+    render json: @beers
   end
 
   # GET /beers/1
@@ -51,7 +52,7 @@ before_action :set_beer, only: [:update, :destroy]
   end
 
   def beer_params
-    params.require(:beer).permit(:name, :brewery, :style)
+    params.require(:beer).permit(:name, :brewery, :style, :quantity)
   end
 
   private :set_beer, :beer_params

@@ -1,5 +1,6 @@
+#
 class TapsController < OpenReadController
-before_action :set_beer, only: [:update, :destroy]
+  before_action :set_beer, only: [:update, :destroy]
 
   # GET /taps
   def index
