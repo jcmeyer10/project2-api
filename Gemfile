@@ -25,10 +25,12 @@ group :development do
   # Use pry over irb for rails console
   gem 'pry-rails'
   gem 'byebug'
+  gem 'rails-erd'
 
 group :production do
   gem 'rails_12factor'
   gem 'puma'
+  gem 'rails-erd'
 end
 
 end
